@@ -733,9 +733,9 @@ class cluspro(nn.Module):
                 couplings = couplings.float()
                 indexs = torch.argmax(couplings, dim=1)
                 q = F.gumbel_softmax(couplings, tau=0.5, hard=True)
-                q = q[attr_idx==k,...] 
+                q = q[obj_idx==k,...] 
         
-                c_k = batch_attr[attr_idx==k, ...]
+                c_k = batch_obj[obj_idx==k, ...]
                 if init_q.shape[0] == 0:
                     continue
              
